@@ -20,6 +20,11 @@
 <% end %>
 -->
 <%= form_for :user, url: "/users" do |f| %>
+	<% if @user.errors.any? %>
+		<% @user.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		<% end %>
+	<% end %>
 	<%= f.label :username %><br>
 	<%= f.text_field :username %><br>
 	<%= f.label :email %><br>
